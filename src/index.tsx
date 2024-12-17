@@ -10,7 +10,7 @@ widgets.forEach((widget) => {
   const root = ReactDOM.createRoot(widgetElement);
   root.render(
     <React.StrictMode>
-      <App id={widgetElement.dataset.symbol} />
+      <App />
     </React.StrictMode>
   );
 });
