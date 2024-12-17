@@ -5,7 +5,7 @@ export const Hello = () => {
   return <div>Hello World</div>;
 };
 
-const el = document.querySelector("#container-widget-counter");
+const el = document.querySelector("#widget-container");
 
 if (el) {
   const root = ReactDOM.createRoot(el);
