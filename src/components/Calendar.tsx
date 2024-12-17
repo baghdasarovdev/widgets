@@ -38,7 +38,7 @@ export const Calendar: FC<DatePickerT> = (props) => {
   );
 };
 
-const el = document.querySelector("#calendar-widget");
+const el = document.querySelector("#widget-container");
 
 if (el) {
   const root = ReactDOM.createRoot(el);
