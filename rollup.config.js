@@ -10,23 +10,23 @@ export default {
   input: "src/components/Hello.tsx", // Your entry point
   output: [
     {
-      file: "./newWidget/index.js",
+      file: "./widget/index.js",
       format: "cjs",
       exports: "named",
     },
     {
-      file: "./newWidget/index.es.js",
+      file: "./widget/index.es.js",
       format: "es",
       exports: "named",
     },
     {
-      file: "./newWidget/index.min.js", // Output minified version (optional)
+      file: "./widget/index.min.js", // Output minified version (optional)
       format: "cjs",
       exports: "named",
       plugins: [terser()], // Minify using terser
     },
     {
-      file: "./newWidget/index.es.min.js", // Minified ES module (optional)
+      file: "./widget/index.es.min.js", // Minified ES module (optional)
       format: "es",
       exports: "named",
       plugins: [terser()], // Minify using terser

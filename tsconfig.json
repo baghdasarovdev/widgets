@@ -4,7 +4,7 @@
     "module": "ESNext",
     "jsx": "react",
     "declaration": true,
-    "declarationDir": "./newWidget/types",
+    "declarationDir": "./widget/types",
     "esModuleInterop": true,
     "skipLibCheck": true
   },
