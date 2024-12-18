@@ -6,10 +6,8 @@ import App from "./App.tsx";
 const widgetDivs = document.querySelectorAll(".container-widget");
 
 widgetDivs.forEach((div) => {
-  ReactDOM.render(<App />, div);
-});
+  console.log(div, "div");
 
-// const root = ReactDOM.createRoot(
-//   document.getElementById("widget-container") as HTMLElement
-// );
-// root.render(<App />);
+  const root = ReactDOM.createRoot(div);
+  root.render(<App />);
+});
