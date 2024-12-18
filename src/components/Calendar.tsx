@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { type FC, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import DatePicker from "react-datepicker";
