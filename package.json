@@ -7,14 +7,14 @@
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:widget": "parcel build src/*/*.tsx --no-source-maps --dist-dir widget && npx copyfiles build/static/css/* widget/ && npx gzip-cli widget/*.js"
+    "build:widget": "parcel build src/*/*.tsx --no-source-maps --dist-dir widget && npx copyfiles build/static/css/* widget/"
   },
   "eslintConfig": {
     "extends": [
@@ -35,21 +35,11 @@
     ]
   },
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@rollup/plugin-typescript": "^12.1.2",
     "copyfiles": "^2.4.1",
-    "gzip-cli": "^1.2.0",
     "parcel": "^2.13.3",
     "postcss": "^8.4.49",
     "process": "^0.11.10",
     "react-datepicker": "^7.5.0",
-    "rollup": "^2.79.2",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^5.7.2"
   }
 }
