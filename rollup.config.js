@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import typescript from "@rollup/plugin-typescript";
 import babel from "@rollup/plugin-babel";
+import { terser } from "rollup-plugin-terser"; // Import terser plugin
 
 export default {
   input: "src/components/Hello.tsx", // Your entry point
@@ -17,6 +18,18 @@ export default {
       file: "./newWidget/index.es.js",
       format: "es",
       exports: "named",
+    },
+    {
+      file: "./newWidget/index.min.js", // Output minified version (optional)
+      format: "cjs",
+      exports: "named",
+      plugins: [terser()], // Minify using terser
+    },
+    {
+      file: "./newWidget/index.es.min.js", // Minified ES module (optional)
+      format: "es",
+      exports: "named",
+      plugins: [terser()], // Minify using terser
     },
   ],
   plugins: [
