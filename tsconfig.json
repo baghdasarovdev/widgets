@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "ESNext",
-    "jsx": "react",
     "declaration": true,
     "declarationDir": "./widget/types",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "jsx": "react-jsx"
   },
   "include": ["src/**/*"]
 }

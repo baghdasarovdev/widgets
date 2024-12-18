@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 
 export const Hello = () => {
   return <div>Hello World</div>;
@@ -8,6 +8,6 @@ export const Hello = () => {
 const el = document.querySelector("#widget-container");
 
 if (el) {
-  const root = ReactDOM.createRoot(el);
+  const root = createRoot(el);
   root.render(<Hello />);
 }
