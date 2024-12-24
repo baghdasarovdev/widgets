@@ -56,6 +56,13 @@ const Calendar = () => {
         inline
         icon={null}
       />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/7.5.0/react-datepicker.min.css"
+        integrity="sha512-mRJDr36tdkaC/Mw4vQlLHb89s0iwGy0vhmZkDhWF6WjkOoD3AAjk1JHr3uR3elMaxxSpNSeRb+0R3/Jdrp0fdA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
     </div>
   );
 };
