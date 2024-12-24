@@ -56,13 +56,13 @@ const Calendar = () => {
         inline
         icon={null}
       />
-      <link
+      {/* <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/7.5.0/react-datepicker.min.css"
         integrity="sha512-mRJDr36tdkaC/Mw4vQlLHb89s0iwGy0vhmZkDhWF6WjkOoD3AAjk1JHr3uR3elMaxxSpNSeRb+0R3/Jdrp0fdA=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
-      />
+      /> */}
     </div>
   );
 };
@@ -176,3 +176,17 @@ const style = document.createElement("style");
 style.type = "text/css";
 style.appendChild(document.createTextNode(css));
 document.head.appendChild(style);
+
+var cssId =
+  "https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/7.5.0/react-datepicker.min.css"; // you could encode the css path itself to generate id..
+if (!document.getElementById(cssId)) {
+  var head = document.getElementsByTagName("head")[0];
+  var link = document.createElement("link");
+  link.id = cssId;
+  link.rel = "stylesheet";
+  link.type = "text/css";
+  link.href =
+    "https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/7.5.0/react-datepicker.min.css";
+  link.media = "all";
+  head.appendChild(link);
+}
