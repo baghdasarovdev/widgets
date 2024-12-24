@@ -97,7 +97,7 @@ const css = `
   width: 100%;
 }
 .custom_calendar .react-datepicker__day:hover {
-  background-color: green;
+  background-color: green !important;
   border-radius: 0;
 }
 
@@ -181,5 +181,6 @@ function loadCss() {
   link.referrerPolicy = "no-referrer";
 
   return link;
+  
 }
 document.head.appendChild(loadCss());
