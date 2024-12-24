@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./Calendar.css";
+// import "./Calendar.css";
 import { durationDays, monthsOptions } from "./constant.ts";
+import fs from "fs";
 
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
+
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
   const [calendarCount, setCalendarCount] = useState<number>(1);
 
@@ -63,6 +65,12 @@ const Calendar = () => {
 };
 
 export default Calendar;
+
+var css = fs.readFileSync("./style.css"); // <-- The css reader
+var style = document.createElement("style");
+style.type = "text/css";
+style.appendChild(document.createTextNode(css));
+document.head.appendChild(style);
 
 const el = document.querySelectorAll(".container-widget");
 
