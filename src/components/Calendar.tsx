@@ -179,5 +179,7 @@ window.onload = function () {
     "sha512-mRJDr36tdkaC/Mw4vQlLHb89s0iwGy0vhmZkDhWF6WjkOoD3AAjk1JHr3uR3elMaxxSpNSeRb+0R3/Jdrp0fdA==";
   link.crossOrigin = "anonymous";
   link.referrerPolicy = "no-referrer";
+  console.log(link, "link");
+
   document.head.appendChild(link);
 };
