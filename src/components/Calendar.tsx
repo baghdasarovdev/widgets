@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css";
 import { durationDays, monthsOptions } from "./constant.ts";
-// import "./Calendar.css";
-const cssText = require("react-datepicker/dist/react-datepicker.css");
 
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -178,7 +176,3 @@ const style = document.createElement("style");
 style.type = "text/css";
 style.appendChild(document.createTextNode(css));
 document.head.appendChild(style);
-
-let style2 = document.createElement("style");
-style2.textContent = cssText;
-document.head.appendChild(style2);
