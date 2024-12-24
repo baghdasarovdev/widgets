@@ -13,7 +13,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:widget": "parcel build src/*/*.tsx public/index.html --no-source-maps --dist-dir widget && npx copyfiles build/static/css/* widget/"
+    "build:widget": "parcel build src/*/*.tsx --no-source-maps --dist-dir widget && npx copyfiles build/static/css/* widget/"
   },
   "eslintConfig": {
     "extends": [
