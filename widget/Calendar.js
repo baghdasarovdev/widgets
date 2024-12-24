@@ -90,4 +90,4 @@
   background-color: rgba(57, 115, 185, 1) !important;
   color: white !important;
 }
-`,b=document.createElement("style");b.type="text/css",b.appendChild(document.createTextNode(y)),document.head.appendChild(b);let x=document.createElement("style");x.textContent={},document.head.appendChild(x)}();
+`,b=document.createElement("style");b.type="text/css",b.appendChild(document.createTextNode(y)),document.head.appendChild(b)}();
