@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 import { durationDays, monthsOptions } from "./constant.ts";
 
 const Calendar = () => {
@@ -11,7 +11,6 @@ const Calendar = () => {
 
   const handleSelectDates = (dates) => {
     setStartDate(null);
-
     if (!startDate) {
       setStartDate(dates);
     } else {
