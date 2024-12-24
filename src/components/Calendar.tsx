@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
 import { durationDays, monthsOptions } from "./constant.ts";
 
 const Calendar = () => {
@@ -39,6 +38,8 @@ const Calendar = () => {
       setSelectedDates((prev) => [...prev, ...updatedRanges]);
     }
   };
+
+  console.log(selectedDates, "selectedDates");
 
   return (
     <div className="custom_calendar">
