@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cra-template-typescript": "1.2.0",
+    "fs": "^0.0.1-security",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1"
@@ -13,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:widget": "parcel build src/*/*.tsx --no-source-maps --dist-dir widget"
+    "build:widget": "parcel build src/*/*.tsx --no-source-maps --dist-dir widget && npx copyfiles build/static/css/* widget/"
   },
   "eslintConfig": {
     "extends": [
@@ -32,5 +33,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "parcel": "^2.13.3",
+    "postcss": "^8.4.49",
+    "process": "^0.11.10",
+    "react-datepicker": "^7.5.0"
   }
 }
