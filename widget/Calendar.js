@@ -25,7 +25,7 @@
 }
 .custom_calendar .react-datepicker__day:hover {
   background-color: green !important;
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 .custom_calendar .react-datepicker {
