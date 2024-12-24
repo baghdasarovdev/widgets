@@ -170,7 +170,7 @@ style.type = "text/css";
 style.appendChild(document.createTextNode(css));
 document.head.appendChild(style);
 
-window.onload = function () {
+function loadCss() {
   var link = document.createElement("link");
   link.rel = "stylesheet";
   link.href =
@@ -179,7 +179,7 @@ window.onload = function () {
     "sha512-mRJDr36tdkaC/Mw4vQlLHb89s0iwGy0vhmZkDhWF6WjkOoD3AAjk1JHr3uR3elMaxxSpNSeRb+0R3/Jdrp0fdA==";
   link.crossOrigin = "anonymous";
   link.referrerPolicy = "no-referrer";
-  console.log(link, "link");
 
-  document.head.appendChild(link);
-};
+  return link;
+}
+document.head.appendChild(loadCss());
