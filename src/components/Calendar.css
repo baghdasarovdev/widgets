@@ -1,3 +1,20 @@
+.custom_calendar {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid silver;
+  padding: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.custom_calendar select {
+  padding: 7px;
+  padding-right: 2.5em;
+  border-radius: 50px;
+  align-self: flex-end;
+  margin-bottom: 30px;
+}
+
 .custom_calendar .react-datepicker__day {
   background-color: green;
   color: white !important;
@@ -5,6 +22,10 @@
   margin: 1px;
   max-width: 45px !important;
   width: 100%;
+}
+.custom_calendar .react-datepicker__day:hover {
+  background-color: green;
+  border-radius: 0;
 }
 
 .custom_calendar .react-datepicker {
@@ -19,10 +40,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.custom_calendar .react-datepicker__triangle {
-  display: none;
 }
 
 .custom_calendar .react-datepicker__day--highlighted-custom {
@@ -42,17 +59,6 @@
   border-radius: 0;
 }
 
-.custom_calendar .react-datepicker__day--in-range {
-  background: silver;
-  border-radius: 0;
-}
-.custom_calendar
-  .react-datepicker__day--keyboard-selected.react-datepicker__day--range-end,
-.react-datepicker__day--range-end.react-datepicker__day--in-range {
-  background: linear-gradient(135deg, silver 50%, green 50%);
-  border-radius: 0;
-}
-
 .custom_calendar .react-datepicker__month-container .react-datepicker__header {
   font-size: 1rem;
   background-color: #fff !important;
@@ -69,17 +75,18 @@
   min-height: 260px;
 }
 
-.custom_calendar .partially-booked-date {
-  border: none;
-}
-
-.busy-date {
-  background: linear-gradient(135deg, silver 50%, green 50%);
-}
-
 .custom_calendar .react-datepicker__navigation {
   top: 50%;
 }
 .custom_calendar .react-datepicker__navigation-icon::before {
   border-color: rgb(12, 102, 228);
+}
+
+.custom_calendar .react-datepicker__day--selecting-range-start {
+  background-color: rgba(57, 115, 185, 1) !important;
+  color: white !important;
+}
+.custom_calendar .react-datepicker__day--selecting-range-end {
+  background-color: rgba(57, 115, 185, 1) !important;
+  color: white !important;
 }
