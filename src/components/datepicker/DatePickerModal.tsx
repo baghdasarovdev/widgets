@@ -4,6 +4,7 @@ import enGB from "date-fns/locale/en-GB";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
 import DatePickerModalInput from "./DatePickerModalInput.tsx";
 import { loadCss } from "../../helper/LoadDatePickerStyle.ts";
+import ReactDOM from "react-dom";
 
 registerLocale("en-GB", enGB);
 setDefaultLocale("en-GB");
@@ -112,6 +113,15 @@ const DatePickerModal = () => {
 };
 
 export default DatePickerModal;
+
+const el = document.querySelectorAll(".container-widget");
+
+if (el) {
+  el.forEach((div) => {
+    const root = ReactDOM.createRoot(div);
+    root.render(<DatePickerModal />);
+  });
+}
 
 const css = `
 .custom-date-picker_modal .react-datepicker__day {
