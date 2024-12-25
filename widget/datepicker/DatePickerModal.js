@@ -137,7 +137,6 @@
 .custom-date-picker_modal .react-datepicker-popper {
   position: fixed !important;
   top: -10px !important;
-  transform: translate(0, 78px);
 }
 
 .custom-date-picker_modal .date-picker-description { 
