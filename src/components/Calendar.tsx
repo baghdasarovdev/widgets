@@ -1,45 +1,71 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import DatePicker from "react-datepicker";
-import { durationDays, monthsOptions } from "./constant.ts";
+import { monthsOptions } from "./constant.ts";
 
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
-  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+  const [selectedDates, setSelectedDates] = useState<any[]>([]);
   const [calendarCount, setCalendarCount] = useState<number>(1);
+  const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
+  const [rangeToRemove, setRangeToRemove] = useState<any>(null);
 
   const handleSelectDates = (dates) => {
     setStartDate(null);
-    if (!startDate) {
-      setStartDate(dates);
+
+    const selectedDate = new Date(dates);
+    const dateInRange = selectedDates.find((range) => {
+      return selectedDate >= range.start && selectedDate <= range.end;
+    });
+
+    if (dateInRange) {
+      setRangeToRemove(dateInRange);
+      setIsPopupVisible(true);
     } else {
-      const date1 = new Date(startDate);
-      const date2 = new Date(dates);
-      const duration = durationDays(date1, date2);
+      if (!startDate) {
+        setStartDate(dates);
+      } else {
+        const date1 = new Date(startDate);
+        const date2 = new Date(dates);
 
-      let className = `react-datepicker__day--highlighted-custom`;
+        const start = date1 < date2 ? date1 : date2;
+        const end = date1 < date2 ? date2 : date1;
 
-      const checkDate = new Date(startDate);
-      const endDate = new Date(dates);
+        const updatedRange = { start, end };
 
-      const updatedRanges = duration.map((date, i) => {
-        let rangeObject = { [className]: [date] };
-
-        if (date.getTime() === checkDate.getTime()) {
-          const newClassName = `${className} start`;
-          rangeObject = { [newClassName]: [date] };
-        } else if (endDate.getTime() === date.getTime()) {
-          const newClassName = `${className} end`;
-          rangeObject = { [newClassName]: [date] };
-        }
-        return rangeObject;
-      });
-
-      setSelectedDates((prev) => [...prev, ...updatedRanges]);
+        setSelectedDates((prev) => [...prev, updatedRange]);
+      }
     }
   };
 
-  console.log(selectedDates, "selectedDates");
+  const handlePopupConfirm = () => {
+    setSelectedDates((prev) =>
+      prev.filter(
+        (range) =>
+          !(
+            range.start.getTime() === rangeToRemove.start.getTime() &&
+            range.end.getTime() === rangeToRemove.end.getTime()
+          )
+      )
+    );
+    setIsPopupVisible(false);
+    setRangeToRemove(null);
+  };
+
+  const handlePopupReject = () => {
+    setIsPopupVisible(false);
+    setRangeToRemove(null);
+  };
+
+  const highlightDates = selectedDates.flatMap((range) => {
+    let currentDate = new Date(range.start);
+    const datesInRange = [];
+    while (currentDate <= range.end) {
+      datesInRange.push(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return datesInRange;
+  });
 
   return (
     <div className="custom_calendar">
@@ -50,13 +76,38 @@ const Calendar = () => {
           </option>
         ))}
       </select>
+
       <DatePicker
-        highlightDates={selectedDates}
+        highlightDates={highlightDates}
         onChange={(date) => handleSelectDates(date)}
         monthsShown={calendarCount}
         inline
         icon={null}
+        dayClassName={(date) => {
+          for (const range of selectedDates) {
+            if (date >= range.start && date <= range.end) {
+              if (date.getTime() === range.start.getTime()) {
+                return "react-datepicker__day--highlighted-custom start";
+              }
+              if (date.getTime() === range.end.getTime()) {
+                return "react-datepicker__day--highlighted-custom end";
+              }
+              return "react-datepicker__day--highlighted-custom";
+            }
+          }
+          return undefined;
+        }}
       />
+
+      {isPopupVisible && (
+        <div className="popup">
+          <div className="popup-content">
+            <h3>Do you want to remove the selected date range?</h3>
+            <button onClick={handlePopupConfirm}>Yes</button>
+            <button onClick={handlePopupReject}>No</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -164,6 +215,46 @@ const css = `
   background-color: rgba(57, 115, 185, 1) !important;
   color: white !important;
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.popup-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-content button:nth-child(2) {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 `;
 
 const style = document.createElement("style");
