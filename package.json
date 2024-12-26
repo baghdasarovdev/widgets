@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fullcalendar/multimonth": "^6.1.15",
-    "@fullcalendar/react": "^6.1.15",
-    "@fullcalendar/resource-timeline": "^6.1.15",
     "@parcel/optimizer-data-url": "^2.13.3",
     "@parcel/transformer-inline-string": "^2.13.3",
     "cra-template-typescript": "1.2.0",
@@ -40,6 +37,13 @@
     ]
   },
   "devDependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/multimonth": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
     "@parcel/config-default": "^2.13.3",
     "copyfiles": "^2.4.1",
     "parcel": "^2.13.3",
