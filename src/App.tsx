@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import Calendar from "./components/calendar/Calendar.tsx";
-import DatePickerModal from "./components/datepicker/DatePickerModal.tsx";
+import FullCalendar from "./components/calendar/FullCalendar.tsx";
+import YearViewCalendar from "./components/calendar/YearViewCalendar.tsx";
 
 function App() {
   return (
     <div className="App">
-      <DatePickerModal />
-      {/* <Calendar /> */}
+      <FullCalendar />
+      {/* <YearViewCalendar /> */}
     </div>
   );
 }

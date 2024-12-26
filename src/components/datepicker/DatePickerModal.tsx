@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import enGB from "date-fns/locale/en-GB";
-import { registerLocale, setDefaultLocale } from "react-datepicker";
 import DatePickerModalInput from "./DatePickerModalInput.tsx";
 import { loadCss } from "../../helper/LoadDatePickerStyle.ts";
 import ReactDOM from "react-dom";
 
-registerLocale("en-GB", enGB);
-setDefaultLocale("en-GB");
 loadCss();
 
 const DatePickerModal = () => {
