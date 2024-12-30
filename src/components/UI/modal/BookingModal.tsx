@@ -264,7 +264,6 @@ input {
 
 .modal-title-input {
   padding: 10px;
-  width: 100%;
   font-size: 16px;
   background-color: #f5f7fa;
 }
