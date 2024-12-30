@@ -87,6 +87,11 @@ const YearViewCalendar = () => {
         selectable={true}
         eventClick={handleEventClick}
         height={"95vh"}
+        longPressDelay={0}
+        selectMirror={true}
+        editable={true}
+        eventStartEditable={true}
+        eventResizableFromStart={true}
       />
 
       <BookingModal
