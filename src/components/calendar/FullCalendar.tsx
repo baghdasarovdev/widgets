@@ -11,48 +11,43 @@ import BookingModal from "../UI/modal/BookingModal.tsx";
 
 const YearViewCalendar = () => {
   const [events, setEvents] = useState([
-    { id: "1", title: "Event 1", start: "2024-12-27", end: "2024-12-28" },
-    { id: "2", title: "Event 2", start: "2024-12-30", end: "2024-12-31" },
+    { id: "1", title: "Event 1", start: new Date(), end: new Date() },
   ]);
 
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [newEventTitle, setNewEventTitle] = useState("");
   const [selectedStart, setSelectedStart] = useState("");
   const [selectedEnd, setSelectedEnd] = useState("");
+  const [selectedTime, setSelectedTime] = useState({ start: "", end: "" });
 
   const handleDateSelect = (selectInfo) => {
-    console.log("Selected date info:", selectInfo);
     setSelectedStart(selectInfo.startStr);
     setSelectedEnd(selectInfo.endStr);
     setIsBookingModalOpen(true);
   };
 
-  const handleBookEvent = () => {
-    if (newEventTitle) {
-      const newEvent = {
-        title: newEventTitle,
-        start: selectedStart,
-        end: selectedEnd,
-        id: `${Date.now()}`,
-      };
+  const handleBookEvent = (newTitle: string) => {
+    const newEvent = {
+      title: newTitle,
+      start: selectedTime.start
+        ? `${selectedStart}T${selectedTime.start}:00`
+        : selectedStart,
+      end: selectedTime.end
+        ? `${selectedEnd}T${selectedTime.end}:00`
+        : selectedEnd,
+      id: `${Date.now()}`,
+    };
 
-      setEvents((prevEvents) => [...prevEvents, newEvent]);
-      setIsBookingModalOpen(false);
-      setNewEventTitle("");
-    } else {
-      alert("Please enter a title for the event.");
-    }
+    setEvents((prevEvents) => [...prevEvents, newEvent]);
+    setIsBookingModalOpen(false);
   };
 
   const handleCancelBooking = () => {
     setIsBookingModalOpen(false);
-    setNewEventTitle("");
   };
 
   const handleEventClick = (clickInfo) => {
-    console.log(clickInfo, "clickInfo");
     setSelectedEvent(clickInfo.event);
     setIsDeleteModalOpen(true);
   };
@@ -97,8 +92,6 @@ const YearViewCalendar = () => {
       <BookingModal
         isBookingModalOpen={isBookingModalOpen}
         isDeleteModalOpen={isDeleteModalOpen}
-        newEventTitle={newEventTitle}
-        setNewEventTitle={setNewEventTitle}
         selectedStart={selectedStart}
         setSelectedStart={setSelectedStart}
         selectedEnd={selectedEnd}
@@ -107,6 +100,8 @@ const YearViewCalendar = () => {
         handleCancelBooking={handleCancelBooking}
         handleCancelDelete={handleCancelDelete}
         handleDeleteEvent={handleDeleteEvent}
+        setSelectedTime={setSelectedTime}
+        selectedTime={selectedTime}
       />
     </div>
   );
