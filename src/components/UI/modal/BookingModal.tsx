@@ -264,7 +264,7 @@ input {
 
 .modal-title-input {
   padding: 10px;
-  width: -webkit-fill-available;
+  width: 100%;
   font-size: 16px;
   background-color: #f5f7fa;
 }
@@ -298,6 +298,7 @@ input {
   padding-bottom: 10px;
   border-radius: 8px;
   font-family: Arial, sans-serif;
+  flex-wrap: wrap;
 }
 
 .date-time-input {
@@ -344,10 +345,11 @@ label {
   justify-content: space-between;
   gap: 24px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .time-range-item {
-  width: -webkit-fill-available;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -416,6 +418,25 @@ label {
   cursor: pointer;
 }
 
+@media (min-width: 425px) {
+  .date-time-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: #f5f7fa;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    flex-wrap: nowrap;
+  }
+  
+  .time-range {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 10px;
+    flex-wrap: nowrap;
+  }
+}
 `;
 
 const style = document.createElement("style");
