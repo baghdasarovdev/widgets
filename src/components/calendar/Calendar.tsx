@@ -117,7 +117,7 @@ const Calendar = () => {
 
 export default Calendar;
 
-const el = document.querySelectorAll(".container-widget-calendar");
+const el = document.querySelectorAll(".container-widget");
 
 if (el) {
   el.forEach((div) => {

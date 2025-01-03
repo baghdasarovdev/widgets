@@ -110,7 +110,7 @@ const DatePickerModal = () => {
 
 export default DatePickerModal;
 
-const el = document.querySelectorAll(".container-widget-datepicker");
+const el = document.querySelectorAll(".container-widget");
 
 if (el) {
   el.forEach((div) => {
