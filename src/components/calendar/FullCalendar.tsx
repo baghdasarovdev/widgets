@@ -67,7 +67,7 @@ const YearViewCalendar = () => {
   };
 
   return (
-    <div>
+    <div className="full-calendar_container">
       <FullCalendar
         plugins={[
           multiMonthPlugin,
@@ -86,7 +86,7 @@ const YearViewCalendar = () => {
         select={handleDateSelect}
         selectable={true}
         eventClick={handleEventClick}
-        height={"95vh"}
+        height={"100%"}
         longPressDelay={0}
         selectMirror={true}
         editable={true}
