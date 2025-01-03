@@ -108,6 +108,31 @@ const YearViewCalendar = () => {
         setSelectedTime={setSelectedTime}
         selectedTime={selectedTime}
       />
+      <div style={{ marginTop: "20px", display: "flex", gap: "20px" }}>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{
+              width: "15px",
+              height: "15px",
+              background: "white",
+              border: "1px solid #ccc",
+            }}
+          ></div>
+          <div>Free</div>
+        </div>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "#3788d8" }}
+          ></div>
+          <div>Booked</div>
+        </div>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "silver" }}
+          ></div>
+          <div>Blocked</div>
+        </div>
+      </div>
     </div>
   );
 };

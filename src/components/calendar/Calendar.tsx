@@ -71,47 +71,81 @@ const Calendar = () => {
   });
 
   return (
-    <div className="custom_calendar">
-      <select onChange={(e) => setCalendarCount(Number(e.target.value))}>
-        {monthsOptions.map(({ title, value }) => (
-          <option key={value} value={value}>
-            {title}
-          </option>
-        ))}
-      </select>
+    <>
+      <div className="custom_calendar">
+        <select onChange={(e) => setCalendarCount(Number(e.target.value))}>
+          {monthsOptions.map(({ title, value }) => (
+            <option key={value} value={value}>
+              {title}
+            </option>
+          ))}
+        </select>
 
-      <DatePicker
-        highlightDates={highlightDates}
-        onChange={(date) => handleSelectDates(date)}
-        monthsShown={calendarCount}
-        inline
-        icon={null}
-        dayClassName={(date) => {
-          for (const range of selectedDates) {
-            if (date >= range.start && date <= range.end) {
-              if (date.getTime() === range.start.getTime()) {
-                return "react-datepicker__day--highlighted-custom start";
+        <DatePicker
+          highlightDates={highlightDates}
+          onChange={(date) => handleSelectDates(date)}
+          monthsShown={calendarCount}
+          inline
+          icon={null}
+          dayClassName={(date) => {
+            for (const range of selectedDates) {
+              if (date >= range.start && date <= range.end) {
+                if (date.getTime() === range.start.getTime()) {
+                  return "react-datepicker__day--highlighted-custom start";
+                }
+                if (date.getTime() === range.end.getTime()) {
+                  return "react-datepicker__day--highlighted-custom end";
+                }
+                return "react-datepicker__day--highlighted-custom";
               }
-              if (date.getTime() === range.end.getTime()) {
-                return "react-datepicker__day--highlighted-custom end";
-              }
-              return "react-datepicker__day--highlighted-custom";
             }
-          }
-          return undefined;
-        }}
-      />
+            return undefined;
+          }}
+        />
 
-      {isPopupVisible && (
-        <div className="popup">
-          <div className="popup-content">
-            <h3>Do you want to remove the selected date range?</h3>
-            <button onClick={handlePopupConfirm}>Yes</button>
-            <button onClick={handlePopupReject}>No</button>
+        {isPopupVisible && (
+          <div className="popup">
+            <div className="popup-content">
+              <h3>Do you want to remove the selected date range?</h3>
+              <button onClick={handlePopupConfirm}>Yes</button>
+              <button onClick={handlePopupReject}>No</button>
+            </div>
           </div>
+        )}
+      </div>
+      <div style={{ marginTop: "20px", display: "flex", gap: "20px" }}>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "green" }}
+          ></div>
+          <div>Free</div>
         </div>
-      )}
-    </div>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "red" }}
+          ></div>
+          <div>Proven</div>
+        </div>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "silver" }}
+          ></div>
+          <div>Blocked</div>
+        </div>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "#5f6969" }}
+          ></div>
+          <div>Preparation time</div>
+        </div>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ width: "15px", height: "15px", background: "yellow" }}
+          ></div>
+          <div>Marked</div>
+        </div>
+      </div>
+    </>
   );
 };
 
