@@ -122,3 +122,14 @@ if (el) {
     root.render(<YearViewCalendar />);
   });
 }
+
+const css = `
+.full-calendar_container {
+  height: 100%;
+}
+`;
+
+const style = document.createElement("style");
+style.type = "text/css";
+style.appendChild(document.createTextNode(css));
+document.head.appendChild(style);
