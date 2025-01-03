@@ -114,8 +114,7 @@ const YearViewCalendar = () => {
             style={{
               width: "15px",
               height: "15px",
-              background: "white",
-              border: "1px solid #ccc",
+              background: "floralwhite",
             }}
           ></div>
           <div>Free</div>
@@ -151,6 +150,10 @@ if (el) {
 const css = `
 .full-calendar_container {
   height: 100%;
+}
+
+.fc-theme-standard td {
+  background: floralwhite;
 }
 `;
 
