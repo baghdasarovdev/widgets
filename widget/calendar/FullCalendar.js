@@ -260,4 +260,8 @@ label {
 .full-calendar_container {
   height: 100%;
 }
+
+.fc-theme-standard td {
+  background: floralwhite;
+}
 `,an=document.createElement("style");an.type="text/css",an.appendChild(document.createTextNode(at)),document.head.appendChild(an)}();

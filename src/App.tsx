@@ -7,7 +7,7 @@ import DatePickerModal from "./components/datepicker/DatePickerModal.tsx";
 function App() {
   return (
     <div className="App">
-      <FullCalendar />
+      <Calendar />
     </div>
   );
 }

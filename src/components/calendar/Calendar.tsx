@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import DatePicker from "react-datepicker";
 import { monthsOptions } from "./constant.ts";
@@ -12,6 +12,16 @@ const Calendar = () => {
   const [calendarCount, setCalendarCount] = useState<number>(1);
   const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
   const [rangeToRemove, setRangeToRemove] = useState<any>(null);
+
+  // Set one-week default range on component mount
+  useEffect(() => {
+    const today = new Date();
+    const nextWeek = new Date(today);
+    nextWeek.setDate(today.getDate() + 7);
+
+    setStartDate(today);
+    setSelectedDates([{ start: today, end: nextWeek }]);
+  }, []);
 
   const handleSelectDates = (dates) => {
     setStartDate(null);

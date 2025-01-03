@@ -152,6 +152,10 @@ const css = `
 .full-calendar_container {
   height: 100%;
 }
+
+.fc-theme-standard td {
+  background: floralwhite;
+}
 `;
 
 const style = document.createElement("style");
