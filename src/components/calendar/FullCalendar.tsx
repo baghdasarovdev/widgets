@@ -114,7 +114,7 @@ const YearViewCalendar = () => {
             style={{
               width: "15px",
               height: "15px",
-              background: "floralwhite",
+              background: "#FFECDC",
             }}
           ></div>
           <div>Free</div>
@@ -153,7 +153,7 @@ const css = `
 }
 
 .fc-theme-standard td {
-  background: floralwhite;
+  background: #FFECDC;
 }
 `;
 
