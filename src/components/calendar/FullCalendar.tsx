@@ -114,8 +114,7 @@ const YearViewCalendar = () => {
             style={{
               width: "15px",
               height: "15px",
-              background: "white",
-              border: "1px solid #ccc",
+              background: "floralwhite",
             }}
           ></div>
           <div>Free</div>
