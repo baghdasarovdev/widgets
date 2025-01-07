@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import Calendar from "./components/Calendar.tsx";
+import FullCalendar from "./components/calendar/FullCalendar.tsx";
 
 function App() {
   return (
     <div className="App">
-      <Calendar />
+      <FullCalendar /> 
     </div>
   );
 }
