@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import FullCalendar from "./components/calendar/FullCalendar.tsx";
 
 function App() {
