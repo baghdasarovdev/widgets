@@ -1,0 +1,10 @@
+{
+  "tailwindFunctions": ["cn"],
+  "tailwindStylesheet": "./src/app/main.css",
+  "tailwindConfig": "./tailwind.config.ts",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "semi": true,
+  "endOfLine": "lf",
+  "singleQuote": true,
+  "tabWidth": 2
+}

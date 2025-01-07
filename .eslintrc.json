@@ -1,0 +1,72 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "plugins": [
+    "unused-imports",
+    "@typescript-eslint",
+    "simple-import-sort",
+    "eslint-plugin-absolute-imports",
+    "tailwindcss"
+  ],
+  "rules": {
+    "tailwindcss/no-custom-classname": 1,
+    "tailwindcss/no-arbitrary-value": 1,
+    "tailwindcss/classnames-order": 2,
+    "tailwindcss/enforces-shorthand": 2,
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/array-type": [
+      2,
+      { "default": "array", "readonly": "array" }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      2,
+      { "prefer": "type-imports", "fixStyle": "inline-type-imports" }
+    ],
+    "react/jsx-no-leaked-render": 2,
+    "react/jsx-curly-brace-presence": 2,
+    "unused-imports/no-unused-imports": 2,
+    "unused-imports/no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^(@|components)(/.*|$)"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "absolute-imports/only-absolute-imports": 2,
+    "newline-before-return": 2
+  }
+}

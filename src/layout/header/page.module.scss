@@ -1,0 +1,25 @@
+.popoverButton {
+  anchor-name: --popover;
+}
+
+.dropdown:popover-open {
+  display: flex;
+  border: none;
+  padding-inline: 0;
+}
+
+.dropdown:popover-open {
+  padding-inline: 0;
+  display: flex;
+  border: none;
+}
+
+.dropdown {
+  position-anchor: --popover;
+  position: absolute;
+  margin: 0;
+  inset: auto;
+  top: anchor(bottom);
+  left: anchor(left);
+  margin-top: 24px;
+}

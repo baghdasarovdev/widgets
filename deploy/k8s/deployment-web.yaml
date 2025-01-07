@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: channel-manager-frontend-deployment
+  namespace: channel-manager-frontend
+  labels:
+    app: channel-manager-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: channel-manager-frontend
+  template:
+    metadata:
+      labels:
+        app: channel-manager-frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: ghcr.io/resido-fhm/channel-manager-ui/channel-manager-ui:latest
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: channel-manager-frontend-service-config
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+      imagePullSecrets:
+      - name: ghcr-secret
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - channel-manager-frontend
+              topologyKey: "kubernetes.io/hostname"

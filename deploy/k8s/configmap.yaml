@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: channel-manager-frontend-service-config
+  namespace: channel-manager-frontend
+data:
+  NODE_ENV: "development"
+  APP_DEBUG: "true"

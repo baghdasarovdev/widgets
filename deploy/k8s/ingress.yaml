@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: channel-manager-frontend-ingress
+  namespace: channel-manager-frontend
+  annotations:
+    cert-manager.io/cluster-issuer: cluster1-cluster-issuer
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: channel-manager.cluster1.resido.info
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: channel-manager-frontend-service-web
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - channel-manager.cluster1.resido.info
+    secretName: channel-manager-frontend-tls
