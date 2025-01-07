@@ -86,7 +86,7 @@ const YearViewCalendar = () => {
         select={handleDateSelect}
         selectable={true}
         eventClick={handleEventClick}
-        height={"95vh"}
+        height={"100%"}
         longPressDelay={0}
         selectMirror={true}
         editable={true}
