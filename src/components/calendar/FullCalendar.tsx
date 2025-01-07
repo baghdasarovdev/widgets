@@ -148,6 +148,10 @@ if (el) {
 }
 
 const css = `
+.container-widget {
+  height: 500px;
+}
+
 .full-calendar_container {
   height: 100%;
 }

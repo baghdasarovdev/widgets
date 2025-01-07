@@ -93,7 +93,7 @@ const App = () => {
 
   return (
     <div>
-      <div className="flex w-full flex-wrap gap-10 md:flex-nowrap">
+      <div className="flex w-full flex-wrap gap-10 md:flex-nowrap h-screen">
         <div className="flex w-full flex-col gap-5 p-10 md:max-w-md md:border-r">
           <h2 className="text-xl font-bold text-neutral-blue">Select Widget</h2>
           {widgetConfig.map((widget) => (
